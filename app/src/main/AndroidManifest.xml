@@ -21,18 +21,30 @@
         <activity
             android:name="de.wme.infbox_android_t04.Info"
             android:label="@string/title_infbox" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.wme.infbox_android_t04.Login" />
         </activity>
         <activity
             android:name="de.wme.infbox_android_t04.Register"
             android:label="@string/title_infbox" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.wme.infbox_android_t04.Login" />
         </activity>
         <activity
             android:name="de.wme.infbox_android_t04.Items"
             android:label="@string/title_infbox" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.wme.infbox_android_t04.Login" />
         </activity>
         <activity
             android:name="de.wme.infbox_android_t04.Details"
             android:label="@string/title_infbox" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.wme.infbox_android_t04.Items" />
         </activity>
     </application>
 
