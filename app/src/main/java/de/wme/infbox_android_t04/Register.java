@@ -1,12 +1,17 @@
 package de.wme.infbox_android_t04;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.TextUtils;
 import android.view.HapticFeedbackConstants;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class Register extends Activity {
@@ -29,7 +34,25 @@ public class Register extends Activity {
     public void buttonRegister(View v) {
         // Haptic feedback
         v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        // TODO: Überprüfung der Email-Adresse
+
+        // validate email
+        EditText input = (EditText)findViewById(R.id.editText2);
+        CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
+
+        if(isValidEmail(input.getText()) && checkBox.isChecked()) {
+            startActivity(new Intent(this, Login.class));
+            return;
+        }
+        else if (checkBox.isChecked()) {
+            Toast toast = Toast.makeText(this, "Email ungültig!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        else {
+            Toast toast = Toast.makeText(this, "Nutzungsbedingungen aktzeptieren!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
     }
 
     @Override
@@ -48,5 +71,9 @@ public class Register extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public final static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }

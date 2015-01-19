@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Registrieren"
         android:id="@+id/button4"
+        android:onClick="buttonRegister"
         android:layout_below="@+id/checkBox"
         android:layout_alignLeft="@+id/checkBox"
         android:layout_alignStart="@+id/checkBox"
